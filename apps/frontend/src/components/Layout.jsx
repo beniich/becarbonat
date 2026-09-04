@@ -113,23 +113,23 @@ export default function Layout() {
 
   return (
     <div className={clsx(
-      "min-h-screen font-sans antialiased flex flex-col selection:bg-[#ff5500] selection:text-white transition-colors duration-200",
-      isDarkMode ? "bg-black text-white" : "bg-white text-black"
+      "min-h-screen font-sans antialiased flex flex-col selection:bg-[#d946ef] selection:text-white transition-colors duration-200",
+      isDarkMode ? "bizos-bg bizos-honeycomb text-[#e2e8f0]" : "bg-white text-black"
     )}>
       
       {/* ── Fixed Desktop Sidebar ─────────────────────────────────────────── */}
       <aside className={clsx(
-        "fixed left-0 top-0 h-full z-50 hidden md:flex flex-col transition-all duration-300 ease-in-out border-r shadow-xs backdrop-blur-xl",
+        "fixed left-0 top-0 h-full z-50 hidden md:flex flex-col transition-all duration-300 ease-in-out shadow-xl",
         isCollapsed ? "w-[76px]" : "w-[260px]",
         isDarkMode 
-          ? "bg-[#000000] border-[#222222] text-[#ededed]" 
-          : "bg-white/95 border-zinc-200 text-black"
+          ? "bizos-sidebar-glass text-[#e2e8f0]" 
+          : "bg-white/95 border-r border-zinc-200 text-black"
       )}>
         {/* Brand Header */}
         <div className={clsx(
           "h-[64px] flex items-center justify-between border-b shrink-0 transition-all duration-300",
           isCollapsed ? "px-3" : "px-5",
-          isDarkMode ? "border-[#222222]" : "border-zinc-200"
+          isDarkMode ? "border-[rgba(217,70,239,0.2)]" : "border-zinc-200"
         )}>
           <NavLink to="/dashboard" className="flex items-center gap-3 group min-w-0" title="BeeCarbonat">
             <BeeCarbonatLogo size={36} showText={!isCollapsed} />
@@ -142,7 +142,7 @@ export default function Layout() {
             className={clsx(
               "p-1.5 rounded-lg border transition-all cursor-pointer shrink-0",
               isDarkMode 
-                ? "text-[#f59e0b] border-[rgba(245,158,11,0.3)] bg-[#0a0a0a] hover:bg-[#161616] hover:border-[#f59e0b] hover:shadow-[0_0_12px_rgba(245,158,11,0.3)]" 
+                ? "text-[#d946ef] border-[rgba(217,70,239,0.35)] bg-[rgba(30,15,52,0.5)] hover:bg-[rgba(45,20,80,0.8)] hover:border-[#f472b6] hover:shadow-[0_0_12px_rgba(217,70,239,0.4)]" 
                 : "text-amber-800 border-amber-300 bg-amber-50 hover:bg-amber-100 hover:border-amber-500"
             )}
           >
@@ -157,7 +157,7 @@ export default function Layout() {
               {!isCollapsed && (
                 <div className={clsx(
                   "px-3 py-1 text-[9px] font-mono uppercase tracking-widest font-bold",
-                  isDarkMode ? "text-[#a1a1a1]" : "text-zinc-500"
+                  isDarkMode ? "text-[#a78bfa]" : "text-zinc-500"
                 )}>
                   {t(cat.categoryKey, cat.categoryDefault)}
                 </div>
@@ -178,16 +178,16 @@ export default function Layout() {
                       isCollapsed ? 'justify-center p-2.5' : 'px-3 py-2 gap-3',
                       isActive
                         ? isDarkMode
-                          ? 'bg-[#111111] text-[#fef08a] font-bold border-[#f59e0b] shadow-[0_0_15px_rgba(245,158,11,0.25)]'
+                          ? 'bg-[rgba(217,70,239,0.1)] text-[#f472b6] font-bold border-[rgba(217,70,239,0.5)] shadow-[0_0_15px_rgba(217,70,239,0.25)]'
                           : 'bg-amber-50 text-amber-950 font-bold border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.2)]'
                         : isDarkMode
-                          ? 'text-[#a1a1a1] hover:text-[#fef08a] hover:bg-[#0a0a0a] hover:border-[rgba(245,158,11,0.25)] border-transparent'
+                          ? 'text-[#a78bfa] hover:text-[#f472b6] hover:bg-[rgba(217,70,239,0.08)] hover:border-[rgba(217,70,239,0.2)] border-transparent'
                           : 'text-zinc-700 hover:text-black hover:bg-zinc-100 border-transparent'
                     )}
                   >
                     <span className={clsx(
                       "material-symbols-outlined text-[18px] group-hover:scale-105 transition-transform shrink-0",
-                      isActive ? "text-[#f59e0b] drop-shadow-[0_0_8px_rgba(245,158,11,0.6)]" : ""
+                      isActive && isDarkMode ? "text-[#d946ef] drop-shadow-[0_0_8px_rgba(217,70,239,0.7)]" : ""
                     )}>
                       {item.icon}
                     </span>
@@ -205,18 +205,18 @@ export default function Layout() {
         {/* User Card */}
         <div className={clsx(
           "p-3 mt-auto border-t shrink-0",
-          isDarkMode ? "border-[#222222]" : "border-zinc-200"
+          isDarkMode ? "border-[rgba(217,70,239,0.2)]" : "border-zinc-200"
         )}>
           <div className={clsx(
             "p-2.5 rounded-lg flex items-center justify-between gap-2 border transition-all",
             isDarkMode 
-              ? "bg-[#0a0a0a] border-[#222222] text-[#ededed]" 
+              ? "bg-[rgba(30,15,52,0.5)] border-[rgba(217,70,239,0.2)] text-[#e2e8f0]" 
               : "bg-zinc-50 border-zinc-200 text-black"
           )}>
             <div className="flex items-center gap-2.5 min-w-0" title={`${user?.firstName || 'System'} ${user?.lastName || 'Admin'}`}>
               <div className={clsx(
                 "w-8 h-8 rounded-md flex items-center justify-center font-bold text-xs shadow-xs shrink-0",
-                isDarkMode ? "bg-[#161616] text-[#ededed] border border-[#222222]" : "bg-zinc-200 text-zinc-800"
+                isDarkMode ? "bg-[rgba(217,70,239,0.15)] text-[#f472b6] border border-[rgba(217,70,239,0.3)]" : "bg-zinc-200 text-zinc-800"
               )}>
                 <span className="material-symbols-outlined text-[18px]">person</span>
               </div>
@@ -225,7 +225,7 @@ export default function Layout() {
                   <span className="font-mono text-[11px] font-bold truncate">
                     {user?.firstName ? `${user.firstName} ${user.lastName || ''}` : 'System Admin'}
                   </span>
-                  <span className="text-[9px] text-[#707070] uppercase font-mono tracking-wider truncate">
+                  <span className="text-[9px] text-[#a78bfa] uppercase font-mono tracking-wider truncate">
                     {user?.role === 'ADMIN' ? 'Tier 01 Operator' : (user?.role || 'Tier 01 Operator')}
                   </span>
                 </div>
@@ -322,7 +322,7 @@ export default function Layout() {
           "fixed top-0 right-0 h-[64px] z-40 px-6 flex items-center justify-between border-b backdrop-blur-xl transition-all duration-300 ease-in-out left-0",
           isCollapsed ? "md:left-[76px]" : "md:left-[260px]",
           isDarkMode 
-            ? "bg-[#000000]/90 border-[#222222] text-[#ededed]" 
+            ? "bg-[rgba(14,6,24,0.85)] border-[rgba(217,70,239,0.2)] text-[#e2e8f0]" 
             : "bg-white/90 border-zinc-200 text-black"
         )}>
           <div className="flex items-center gap-4">
@@ -440,7 +440,7 @@ export default function Layout() {
         {/* Dynamic Main Body Content */}
         <main className={clsx(
           "relative pt-[64px] flex-1 transition-colors duration-200",
-          isDarkMode ? "bg-[#000000] text-[#ededed]" : "bg-white text-black"
+          isDarkMode ? "bg-transparent text-[#e2e8f0]" : "bg-white text-black"
         )}>
           <SubscriptionBanner />
           <Outlet />
@@ -449,7 +449,7 @@ export default function Layout() {
         {/* Global Footer */}
         <footer className={clsx(
           "border-t px-6 py-4 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest transition-colors",
-          isDarkMode ? "bg-[#000000] border-[#222222] text-[#707070]" : "bg-white border-zinc-200 text-zinc-500"
+          isDarkMode ? "bg-[rgba(14,6,24,0.9)] border-[rgba(217,70,239,0.15)] text-[#a78bfa]" : "bg-white border-zinc-200 text-zinc-500"
         )}>
           <div className="flex items-center gap-3">
             <BeeCarbonatLogo size={20} showText={false} />

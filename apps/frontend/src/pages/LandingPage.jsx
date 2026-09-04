@@ -202,29 +202,29 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#08031d] text-foreground font-sans selection:bg-[#ff5500] selection:text-foreground relative overflow-x-hidden transition-colors duration-300">
+    <div className="min-h-screen bizos-bg bizos-honeycomb text-[#e2e8f0] font-sans selection:bg-[#d946ef] selection:text-white relative overflow-x-hidden transition-colors duration-300">
       
-      {/* Floating Pill Header (Inspired by Image 2) */}
+      {/* Floating Pill Header Bizos Glow */}
       <div className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6">
-        <header className="max-w-6xl mx-auto bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-full h-14 px-6 flex items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+        <header className="max-w-6xl mx-auto bizos-header-glow rounded-full h-16 px-6 sm:px-8 flex items-center justify-between shadow-[0_10px_30px_rgba(0,0,0,0.5),0_0_25px_rgba(217,70,239,0.2)]">
           {/* Logo */}
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group">
-            <BeeCarbonatLogo size={28} showText={true} />
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group cursor-pointer">
+            <BeeCarbonatLogo size={32} showText={true} />
           </button>
 
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 font-mono text-[10px] uppercase tracking-[0.15em] font-semibold">
+          <nav className="hidden md:flex items-center gap-7 font-mono text-[11px] uppercase tracking-[0.15em] font-semibold">
             {[
               { path: '/about', label: 'About & Roots' },
               { path: '/market', label: 'Carbon Market' },
               { path: '/case-studies', label: 'Success Stories' },
-              { path: '/impact', label: 'Impact Report' }
-            ].map((tab, index) => (
+              { path: '/impact', label: 'Impact Report' },
+              { path: '/pricing', label: 'Pricing' }
+            ].map((tab) => (
               <Link
                 key={tab.path}
                 to={tab.path}
-                className="text-muted-foreground hover:text-[#ff5500] hover:drop-shadow-[0_0_8px_rgba(255,85,0,0.6)] transition-all py-1.5"
-                style={index === 0 ? { backgroundColor: '#000000', color: '#dda865' } : { color: '#dda865' }}
+                className="text-[#a78bfa] hover:text-[#f472b6] hover:drop-shadow-[0_0_8px_rgba(217,70,239,0.6)] transition-all py-1.5"
               >
                 {tab.label}
               </Link>
@@ -239,16 +239,16 @@ export default function LandingPage() {
                 setDemoModalOpen(true);
                 setDemoStep(1);
               }}
-              className="hidden sm:inline-flex items-center justify-center px-4 py-1.5 bg-gradient-to-r from-orange-500 to-amber-600 text-foreground font-mono text-[9px] font-bold uppercase tracking-wider rounded-full shadow-[0_0_15px_rgba(255,85,0,0.3)] hover:shadow-[0_0_25px_rgba(255,85,0,0.55)] transition-all duration-300"
+              className="hidden sm:inline-flex items-center justify-center px-5 py-2 bizos-cta-pink text-white font-mono text-[10px] font-bold uppercase tracking-wider rounded-full shadow-[0_0_20px_rgba(217,70,239,0.4)] transition-all duration-300 cursor-pointer"
             >
               Request Demo
             </button>
             <Link
               to="/login"
-              className="w-8 h-8 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 flex items-center justify-center text-muted hover:text-foreground transition shadow"
+              className="w-9 h-9 rounded-full border border-[rgba(217,70,239,0.4)] bg-[rgba(30,15,52,0.65)] hover:bg-[rgba(45,20,80,0.85)] hover:border-[#f472b6] flex items-center justify-center text-[#e2e8f0] hover:text-white transition shadow-[0_0_12px_rgba(217,70,239,0.2)]"
               title="Operator Portal Access"
             >
-              <UserCheck className="w-4 h-4" />
+              <UserCheck className="w-4 h-4 text-[#f472b6]" />
             </Link>
           </div>
         </header>
@@ -1419,64 +1419,87 @@ export default function LandingPage() {
 
       </main>
 
-      {/* Ticker Bottom Strip on Home/SRE screen */}
-      <footer className="w-full bg-[#131313] border-t border-border/60 mt-16 py-12 font-sans" style={{ color: "#dda865" }}>
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+      {/* Public Footer Bizos Neon Wave */}
+      <footer className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 my-16 w-full">
+        <div className="relative rounded-3xl bg-[#0c0517]/90 backdrop-blur-2xl border border-[#d946ef]/30 p-8 sm:p-12 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(217,70,239,0.15)]">
+          {/* Electric Energy Waves Ambient Graphic */}
+          <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-gradient-to-tr from-[#d946ef]/30 via-[#8b5cf6]/20 to-transparent blur-3xl pointer-events-none"></div>
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-gradient-to-tl from-[#ec4899]/30 via-[#d946ef]/20 to-transparent blur-3xl pointer-events-none"></div>
           
-          {/* Col 1 */}
-          <div className="space-y-4">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 text-left">
-              <BeeCarbonatLogo size={28} showText={true} />
-            </button>
-            <p className="text-muted-foreground text-[11px] leading-relaxed max-w-xs">
-              The precision engineering standard for facility management. Empowering global infrastructure since 2024.
-            </p>
-          </div>
+          {/* Light Wave SVG overlay trails */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30" viewBox="0 0 1000 300" preserveAspectRatio="none">
+            <path d="M-100 250 Q 200 120 500 280 T 1100 150" fill="none" stroke="url(#landingPinkWave)" strokeWidth="3" />
+            <path d="M-50 280 Q 300 180 600 290 T 1150 180" fill="none" stroke="url(#landingPurpleWave)" strokeWidth="1.5" strokeDasharray="6 6" />
+            <defs>
+              <linearGradient id="landingPinkWave" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#d946ef" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#ec4899" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#f43f5e" stopOpacity="0.2" />
+              </linearGradient>
+              <linearGradient id="landingPurpleWave" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.2" />
+                <stop offset="50%" stopColor="#d946ef" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#ec4899" stopOpacity="0.8" />
+              </linearGradient>
+            </defs>
+          </svg>
 
-          {/* Col 2 */}
-          <div className="space-y-3 font-mono text-[10px] uppercase tracking-wider">
-            <span className="text-muted-foreground font-bold block">Platform</span>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><button onClick={() => setActiveTab('solutions')} className="hover:text-brand-orange">Automation</button></li>
-              <li><button onClick={() => setActiveTab('technology')} className="hover:text-brand-cyan">SRE Terminal</button></li>
-              <li><button onClick={() => setActiveTab('case-studies')} className="hover:text-brand-orange">Digital Twins</button></li>
-            </ul>
-          </div>
-
-          {/* Col 3 */}
-          <div className="space-y-3 font-mono text-[10px] uppercase tracking-wider">
-            <span className="text-muted-foreground font-bold block">Company</span>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-brand-orange">Our Story</a></li>
-              <li><a href="#" className="hover:text-brand-cyan">Careers</a></li>
-              <li><a href="#" className="hover:text-brand-orange">Press</a></li>
-            </ul>
-          </div>
-
-          {/* Col 4 */}
-          <div className="space-y-3 font-mono text-[10px] uppercase tracking-wider">
-            <span className="text-muted-foreground font-bold block">Connect</span>
-            <div className="flex gap-4 text-muted-foreground">
-              <button onClick={() => toast('Connected SRE Web Interface Active')} className="hover:text-brand-cyan" title="Network Topology">
-                <Network className="w-4 h-4" />
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            {/* Col 1 */}
+            <div className="space-y-4">
+              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 text-left cursor-pointer">
+                <BeeCarbonatLogo size={32} showText={true} />
               </button>
-              <button onClick={() => toast('Security Matrix Enforced')} className="hover:text-brand-orange" title="Audit Shield">
-                <Shield className="w-4 h-4" />
-              </button>
-              <a href="mailto:zatexsols@gmail.com" className="hover:text-brand-cyan" title="Email Support">
-                <Mail className="w-4 h-4" />
-              </a>
+              <p className="text-[#a78bfa] text-xs leading-relaxed max-w-xs">
+                The precision engineering standard for smart facility management. Powered by AI and BizOS infrastructure.
+              </p>
+            </div>
+
+            {/* Col 2 */}
+            <div className="space-y-3 font-mono text-[11px] uppercase tracking-wider">
+              <span className="text-white font-bold block">Platform</span>
+              <ul className="space-y-2 text-[#a78bfa]">
+                <li><button onClick={() => setActiveTab('solutions')} className="hover:text-[#f472b6] transition-colors cursor-pointer">Automation</button></li>
+                <li><button onClick={() => setActiveTab('technology')} className="hover:text-[#f472b6] transition-colors cursor-pointer">SRE Terminal</button></li>
+                <li><button onClick={() => setActiveTab('case-studies')} className="hover:text-[#f472b6] transition-colors cursor-pointer">Digital Twins</button></li>
+              </ul>
+            </div>
+
+            {/* Col 3 */}
+            <div className="space-y-3 font-mono text-[11px] uppercase tracking-wider">
+              <span className="text-white font-bold block">Company</span>
+              <ul className="space-y-2 text-[#a78bfa]">
+                <li><Link to="/about" className="hover:text-[#f472b6] transition-colors">Our Story</Link></li>
+                <li><Link to="/careers" className="hover:text-[#f472b6] transition-colors">Careers</Link></li>
+                <li><Link to="/impact" className="hover:text-[#f472b6] transition-colors">Impact Report</Link></li>
+              </ul>
+            </div>
+
+            {/* Col 4 */}
+            <div className="space-y-3 font-mono text-[11px] uppercase tracking-wider">
+              <span className="text-white font-bold block">Connect</span>
+              <div className="flex gap-4 text-[#a78bfa]">
+                <button onClick={() => toast('Connected SRE Web Interface Active')} className="hover:text-[#f472b6] transition-colors" title="Network Topology">
+                  <Network className="w-5 h-5" />
+                </button>
+                <button onClick={() => toast('Security Matrix Enforced')} className="hover:text-[#f472b6] transition-colors" title="Audit Shield">
+                  <Shield className="w-5 h-5" />
+                </button>
+                <a href="mailto:contact@beecarbonat.com" className="hover:text-[#f472b6] transition-colors" title="Email Support">
+                  <Mail className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
 
-        </div>
-
-        {/* Bottom copyright row */}
-        <div className="max-w-7xl mx-auto px-6 pt-8 mt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between text-[10px] font-mono text-muted-foreground">
-          <p>© 2026 BEECARBONAT. ALL RIGHTS RESERVED.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-muted">PRIVACY POLICY</a>
-            <a href="#" className="hover:text-muted">TERMS OF SERVICE</a>
+          {/* Bottom copyright row */}
+          <div className="relative z-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-[#94a3b8] gap-4">
+            <p>© {new Date().getFullYear()} BEECARBONAT. ALL RIGHTS RESERVED.</p>
+            <div className="flex gap-6 font-mono text-[10px]">
+              <Link to="/pricing" className="hover:text-white transition-colors">PRICING</Link>
+              <a href="#" className="hover:text-white transition-colors">PRIVACY POLICY</a>
+              <a href="#" className="hover:text-white transition-colors">TERMS OF SERVICE</a>
+            </div>
           </div>
         </div>
       </footer>
